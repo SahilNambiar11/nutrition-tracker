@@ -9,6 +9,7 @@ import AddFoodModal from "../components/AddFoodModal";
 import DailySummaryCard from "../components/DetailedSummaryCard";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8081";
+console.log("API URL is:", API_URL);
 
 export default function DashboardPage() {
   const { profile, user } = useAuth();
