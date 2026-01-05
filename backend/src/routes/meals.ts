@@ -60,6 +60,7 @@ router.get("/", authMiddleware, async (req, res) => {
   }
 });
 
+
 // CREATE a new meal
 router.post("/", authMiddleware, async (req, res) => {
   const userId = req.userId;

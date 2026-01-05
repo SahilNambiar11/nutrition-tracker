@@ -7,6 +7,9 @@ type Props = {
   onAddFood: (food: FoodItem) => void;
 };
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8081";
+
+
 export default function AddFoodModal({ show, onClose, onAddFood }: Props) {
   const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState<FoodItem[]>([]);
@@ -24,7 +27,7 @@ export default function AddFoodModal({ show, onClose, onAddFood }: Props) {
 
     try {
       const response = await fetch(
-        `http://localhost:8081/api/foods/search?q=${encodeURIComponent(query)}`
+        `${API_URL}/api/foods/search?q=${encodeURIComponent(query)}`
       );
 
       if (!response.ok) {
