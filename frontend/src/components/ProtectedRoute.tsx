@@ -20,8 +20,8 @@ export default function ProtectedRoute({ children }: Props) {
     return <Navigate to="/login" replace />;
   }
 
-  // Only redirect to onboarding if we have a profile AND it's not completed
-  if (profile !== null && !profile.onboardingCompleted) {
+  // Redirect to onboarding if profile is null OR not completed
+  if (profile === null || !profile.onboardingCompleted) {
     return <Navigate to="/onboarding" replace />;
   }
 
