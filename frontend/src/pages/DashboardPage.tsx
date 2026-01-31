@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import type { Meal, FoodItem } from "../types";
 
@@ -8,7 +8,9 @@ import AddMealModal from "../components/AddMealModal";
 import AddFoodModal from "../components/AddFoodModal";
 import DailySummaryCard from "../components/DetailedSummaryCard";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8081";
+const API_URL = window.location.hostname === 'localhost' 
+  ? 'http://localhost:8081' 
+  : 'https://nutrition-tracker-j8uh.onrender.com';
 console.log("API URL is:", API_URL);
 
 export default function DashboardPage() {

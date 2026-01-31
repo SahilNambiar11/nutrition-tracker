@@ -7,7 +7,9 @@ type Props = {
   onAddFood: (food: FoodItem) => void;
 };
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8081";
+const API_URL = window.location.hostname === 'localhost' 
+  ? 'http://localhost:8081' 
+  : 'https://nutrition-tracker-j8uh.onrender.com';
 
 
 export default function AddFoodModal({ show, onClose, onAddFood }: Props) {

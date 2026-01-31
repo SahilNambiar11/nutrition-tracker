@@ -2,7 +2,9 @@ import { createContext, useContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 import type { User, UserProfile, LoginCredentials, SignupCredentials } from "../types";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8081";
+const API_URL = window.location.hostname === 'localhost' 
+  ? 'http://localhost:8081' 
+  : 'https://nutrition-tracker-j8uh.onrender.com';
 
 type AuthContextType = {
   user: User | null;

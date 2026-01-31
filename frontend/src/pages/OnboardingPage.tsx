@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8081";
-console.log("API URL is:", API_URL);
+const API_URL = window.location.hostname === 'localhost' 
+  ? 'http://localhost:8081' 
+  : 'https://nutrition-tracker-j8uh.onrender.com';
 
 
 export default function OnboardingPage() {
